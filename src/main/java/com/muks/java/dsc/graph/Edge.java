@@ -10,7 +10,7 @@ public class Edge {
         this.ToVertex = v2;
     }
 
-    public void Edge(Vertex v1, Vertex v2, int weight) {
+    public Edge(Vertex v1, Vertex v2, int weight) {
         this.FromVertex = v1;
         this.ToVertex = v2;
         this.Weight = weight;

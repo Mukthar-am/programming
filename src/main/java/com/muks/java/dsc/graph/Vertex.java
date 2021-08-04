@@ -25,6 +25,17 @@ public class Vertex<T> {
         }
     }
 
+    public void addEdge(Vertex fromVertex, Vertex toVertex, boolean isDirected, int weight) {
+        Edge e = new Edge(fromVertex, toVertex, weight);
+        if (isDirected) {
+            this.Edges.add(e);
+        } else {
+            Edge e2 = new Edge(toVertex, fromVertex);
+            this.Edges.add(e2);
+        }
+    }
+
+
     public List<Edge> getEdges() {
         return this.Edges;
     }
@@ -35,6 +46,10 @@ public class Vertex<T> {
 
     public void setParent(Vertex p) {
         this.Parent = p;
+    }
+
+    public Vertex getParent() {
+        return this.Parent;
     }
 
     public String toString() {
