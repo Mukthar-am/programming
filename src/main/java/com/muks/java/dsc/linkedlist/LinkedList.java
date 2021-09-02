@@ -9,24 +9,38 @@ public class LinkedList {
         this.Tail = null;
     }
 
-    public void addNode(LinkedListNode node) {
+    public LinkedList addNode(LinkedListNode node) {
         if (this.Head == null) {
             this.Head = this.Tail = node;
-            return;
         }
 
         LinkedListNode n = this.Head;
-        this.Tail.next = node;
+        this.Tail.Next = node;
         this.Tail = node;
+
+        return this;
     }
 
     public LinkedListNode getTail() {
         LinkedListNode node = this.Head;
-        while (node.next != null) {
-            node = node.next;
+        while (node.Next != null) {
+            node = node.Next;
         }
 
         return node;
+    }
+
+
+    // Helper function to print a given linked list
+    public static void printList(LinkedListNode head) {
+        LinkedListNode ptr = head;
+        while (ptr != null)
+        {
+            System.out.print(ptr.Value + " —> ");
+            ptr = ptr.Next;
+        }
+
+        System.out.println("null");
     }
 
     public String toString() {
@@ -38,11 +52,11 @@ public class LinkedList {
 
 
         while (node != null) {
-            sb.append(node.value);
-            if (node.next != null)
+            sb.append(node.Value);
+            if (node.Next != null)
                 sb.append(", ");
 
-            node = node.next;
+            node = node.Next;
         }
         sb.append("}");
 
